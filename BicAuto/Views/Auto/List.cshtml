@@ -1,0 +1,36 @@
+﻿@model AutoListViewModel
+
+
+
+<h1>@Model.CurrentCategory</h1>
+
+<div class="row row-cols-1 row-cols-md-3 g-4">
+
+    @foreach (var auto in Model.Autos)
+    {
+        <div class="col">
+            <div class="card auto-card">
+                <img src="@auto.ImageThumbnailUrl" class="card-img-top" alt="@auto.Name">
+                <div class="card-body auto-button">
+                    <h4 class="d-grid">
+                    </h4>
+
+                    <div class="d-flex justify-content-between mt-2">
+                        <h2 class="text-start">
+                            <a asp-controller="Auto"
+                               asp-action="Details"
+                               asp-route-id="@auto.AutoId"
+                               class="auto-link">@auto.Name</a>
+                        </h2>
+                        <h5 class="text-nowrap">
+                            @auto.Price.ToString("c")
+                        </h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+
+</div>
+
+		
